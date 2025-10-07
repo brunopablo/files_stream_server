@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nginx-rtmp:
+    build: .
+    container_name: nginx_stream
+    ports:
+      - "1935:1935"
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/usr/local/nginx/conf/nginx.conf:ro
+      - /nginx/hls:/nginx/hls
+      - /nginx/dash:/nginx/dash
